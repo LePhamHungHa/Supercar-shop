@@ -100,9 +100,9 @@ export default function Header() {
   };
 
   // Hàm hiện thị menu dropdown các dòng xe
-  const toggleCarMenu = () => {
-    setShowCarMenu(Prev => !Prev)
-  };
+  // const toggleCarMenu = () => {
+  //   setShowCarMenu(Prev => !Prev)
+  // };
 
   return (
     <header>
@@ -113,19 +113,26 @@ export default function Header() {
               <a href="/" className="header_logo">
                 <img src={logo} alt="logo" />
               </a>
-              <div className="header-item menu" onClick={toggleCarMenu} style={{position: "relative"}}>
-                <div className="header-text">
-                  <a className="header_link">
-                    <span className="box-icon"><i className="bi bi-list"></i></span>
-                    <span className="box-text">Các dòng xe</span>
-                  </a>
+              <div
+                className="menu-wrapper"
+                onMouseEnter={() => setShowCarMenu(true)}
+                onMouseLeave={() => setShowCarMenu(false)}
+                style={{ position: "relative" }}
+              >
+                <div className="header-item menu">
+                  <div className="menu-trigger">
+                    <a className="header_link">
+                      <span className="box-icon"><i className="bi bi-list"></i></span>
+                      <span className="box-text">Các dòng xe</span>
+                    </a>
+                  </div>
                 </div>
                 {showCarMenu && (
                   <div className="car-dropdown">
-                    <Link to = "/brand/supercars" onClick={() => setShowCarMenu(false)}>Lamborghini</Link>
-                    <Link to = "/brand/nissan" onClick={() => setShowCarMenu(false)}>Nissan</Link>
-                    <Link to = "/brand/dodge" onClick={() => setShowCarMenu(false)}>Dodge</Link>
-                    <Link to = "/brand/mustang" onClick={() => setShowCarMenu(false)}>Ford (Mustang)</Link>
+                    <Link to="/brand/supercars" onClick={() => setShowCarMenu(false)}>Lamborghini</Link>
+                    <Link to="/brand/nissan" onClick={() => setShowCarMenu(false)}>Nissan</Link>
+                    <Link to="/brand/dodge" onClick={() => setShowCarMenu(false)}>Dodge</Link>
+                    <Link to="/brand/mustang" onClick={() => setShowCarMenu(false)}>Ford (Mustang)</Link>
                   </div>
                 )}
               </div>
@@ -235,7 +242,7 @@ export default function Header() {
                     </div>
                     <div className="cart-total">
                       <span>Tổng: {Number(totalPrice).toLocaleString('vi-VN')}đ</span>
-                      <Link to="/checkout" className="btn-pay">Đặt hàng</Link>
+                      <Link to="/checkout" className="btn-pay"> Đặt hàng</Link>
                     </div>
                   </div>
                 </div>
