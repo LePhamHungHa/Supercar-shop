@@ -1,0 +1,218 @@
+.productDetail {
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+  padding: 60px 0;
+  min-height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+
+  .product-main {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+    .profile-product {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+
+      .prd-galery {
+        flex: 1;
+        padding: 30px;
+
+        .img-prd {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          border-radius: 12px;
+          overflow: hidden;
+          background: #f4f4f4;
+
+          .main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+          }
+
+          .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            z-index: 1;
+
+            &:hover {
+              background-color: #c8102e;
+            }
+          }
+
+          .prev-btn { left: 10px; }
+          .next-btn { right: 10px; }
+        }
+
+        .thumbnail-gallery {
+          margin-top: 15px;
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+
+          img {
+            width: 90px;
+            height: 60px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+
+            &.active, &:hover {
+              border-color: #c8102e;
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+
+      .prd-info {
+        flex: 1;
+        padding: 30px;
+
+        h1 {
+          font-size: 32px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          color: #222;
+        }
+
+        .price {
+          font-size: 28px;
+          font-weight: 700;
+          color: #c8102e;
+          margin: 20px 0;
+        }
+
+        .prd-actions {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          margin-bottom: 25px;
+
+          button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: #c8102e;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+              background: #a00d24;
+            }
+          }
+        }
+
+        .product-specs {
+          margin-top: 25px;
+
+          h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #444;
+          }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+
+            td {
+              padding: 10px;
+              border-bottom: 1px solid #ddd;
+            }
+
+            td:first-child {
+              font-weight: bold;
+              color: #111;
+              width: 40%;
+            }
+          }
+        }
+
+        .description {
+          margin-top: 20px;
+
+          h3 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #444;
+          }
+
+          p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+          }
+        }
+      }
+    }
+  }
+
+  .loading, .not-found {
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    padding: 60px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productDetail {
+    .product-main {
+      padding: 20px;
+
+      .profile-product {
+        flex-direction: column;
+
+        .prd-galery, .prd-info {
+          padding: 20px;
+        }
+
+        .thumbnail-gallery img {
+          width: 70px;
+          height: 50px;
+        }
+
+        .prd-info h1 {
+          font-size: 24px;
+        }
+
+        .prd-price {
+          font-size: 22px;
+        }
+
+        .prd-actions button {
+          font-size: 14px;
+        }
+
+        .product-specs td {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
